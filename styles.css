@@ -627,9 +627,10 @@ body.is-loading .hero-project-image {
   position: absolute;
   bottom: 20px; left: 50%;
   transform: translateX(-50%);
-  background: var(--badge-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(20, 20, 20, 0.45);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   padding: 10px 24px;
   border-radius: 100px;
   font-size: 15px;
@@ -647,9 +648,10 @@ body.is-loading .hero-project-image {
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%) translateY(12px);
-  background: var(--badge-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(20, 20, 20, 0.45);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   padding: 12px 28px;
   border-radius: 100px;
   font-size: 15px;
@@ -917,6 +919,8 @@ body.is-loading .hero-project-image {
   .hero { padding: 120px 0 40px; }
   .heading-hero { font-size: 36px; }
   .projects-grid { grid-template-columns: 1fr; }
+  .project-name-badge { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .project-meta { color: var(--text-secondary); }
   .choose-row-left { flex-direction: column; gap: 8px; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; padding: 0 16px 10rem; }
   .footer-bottom { grid-template-columns: 1fr 1fr; gap: 8px; }
