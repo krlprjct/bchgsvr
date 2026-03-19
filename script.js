@@ -11,14 +11,15 @@ const i18n = {
     'nav.contact': 'Контакт',
     'nav.menu': 'Меню',
     'hero.subtitle': 'Режиссёр, оператор и монтажёр. Превращаю сырой материал в структурированные, цепляющие истории с чётким ритмом и эмоциональной динамикой.',
-    'hero.cta': 'Давайте работать вместе',
-    'hero.heading': 'Создаю истории для YouTube, документалистики и\u00a0кино',
+    'hero.cta': 'Начать проект',
+    'hero.heading': 'Создаю истории для YouTube, документалок и\u00a0кино',
     'hero.showreel': 'Смотреть шоурил',
     'about.label': 'ОБО МНЕ',
     'about.display': 'Я беру на себя структуру истории, нарративный поток и финальный монтаж — чтобы авторы могли сосредоточиться на контенте и росте.',
     'about.body': 'Монтажёр-режиссёр. Специализируюсь на длинных YouTube-форматах и документальном сторителлинге. Помогаю авторам превращать сырой материал в структурированные, удерживающие внимание истории с чётким ритмом.',
-    'about.raw': 'Сырой материал',
-    'about.final': 'Финальный монтаж',
+    'about.step1': 'Сырой материал',
+    'about.step2': 'Структура и ритм',
+    'about.step3': 'Финальный монтаж',
     'work.label': 'ИЗБРАННЫЕ РАБОТЫ<sup>(14)</sup>',
     'work.showreel': 'Смотреть шоурил',
     'work.watch': 'Смотреть',
@@ -41,7 +42,9 @@ const i18n = {
     'skills.text1': 'Монтаж видео/фильмов и\u00a0нарративный сторителлинг. YouTube long-form и\u00a0short-form монтаж на удержание. Документальный и\u00a0кинематографический монтаж.',
     'skills.text2': 'Работа с авторами, блогерами и продакшн-командами. Структурирование сложных историй из сырого материала. Музыкальный ритм и эмоциональный тайминг.',
     'footer.headline': 'Есть история, которую нужно снять? <a href="mailto:bchgsv@gmail.com" class="footer-cta-inline">Напишите мне &#8594;</a>',
-    'footer.city': 'Москва'
+    'footer.city': 'Москва',
+    'footer.copy': '&copy;2026 Руслан Бучугасов',
+    'footer.credit': 'NYFA Сценарное мастерство и\u00a0драматургия \'24'
   }
 };
 
@@ -435,28 +438,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       );
     }
-
-    // Line glow slider
-    document.querySelectorAll('.line-container').forEach(container => {
-      const glow = container.querySelector('.line-glow');
-      if (!glow) return;
-
-      gsap.set(glow, { x: -250, opacity: 0 });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: container.closest('.clarity-slider') || container.closest('.section'),
-          start: 'top bottom',
-          end: () => '+=' + (window.innerHeight + 250),
-          scrub: true,
-          invalidateOnRefresh: true
-        }
-      });
-
-      tl.to(glow, { opacity: 1, duration: 0.15, ease: 'none' }, 0)
-        .to(glow, { x: () => container.clientWidth + 250, duration: 1, ease: 'none' }, 0)
-        .to(glow, { opacity: 0, duration: 0.15, ease: 'none' }, 0.85);
-    });
 
     // Footer wordmark
     gsap.fromTo('.footer-giant-wordmark',
