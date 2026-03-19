@@ -2,7 +2,71 @@
    BCHGSV — Portfolio Script
    ======================================== */
 
+/* ---- i18n ---- */
+const i18n = {
+  ru: {
+    'nav.about': 'Обо мне',
+    'nav.work': 'Работы',
+    'nav.approach': 'Подход',
+    'nav.contact': 'Контакт',
+    'nav.menu': 'Меню',
+    'hero.subtitle': 'Режиссёр, оператор и монтажёр. Превращаю сырой материал в структурированные, цепляющие истории с чётким ритмом и эмоциональной динамикой.',
+    'hero.cta': 'Давайте работать вместе',
+    'hero.heading': 'Создаю истории для YouTube, документалистики и\u00a0кино',
+    'hero.showreel': 'Смотреть шоурил',
+    'about.label': 'ОБО МНЕ',
+    'about.display': 'Я беру на себя структуру истории, нарративный поток и финальный монтаж — чтобы авторы могли сосредоточиться на контенте и росте.',
+    'about.body': 'Монтажёр-режиссёр. Специализируюсь на длинных YouTube-форматах и документальном сторителлинге. Помогаю авторам превращать сырой материал в структурированные, удерживающие внимание истории с чётким ритмом.',
+    'about.raw': 'Сырой материал',
+    'about.final': 'Финальный монтаж',
+    'work.label': 'ИЗБРАННЫЕ РАБОТЫ<sup>(14)</sup>',
+    'work.showreel': 'Смотреть шоурил',
+    'work.watch': 'Смотреть',
+    'work.meta.biomachine': 'Режиссёр | Монтажёр | 1.8М просмотров',
+    'work.meta.yantoples': 'Оператор | Монтажёр | Колорист',
+    'work.meta.frametamer': 'Оператор | Режиссёр | 500К просмотров',
+    'work.meta.frametamerdoc': 'Документалистика | Режиссёр | Монтажёр',
+    'approach.label': 'ПОЧЕМУ Я',
+    'approach.heading': 'Что я привношу в каждый проект',
+    'approach.cta': 'Связаться',
+    'approach.r1.title': 'Владение нарративом',
+    'approach.r1.text': 'Беру полную ответственность за структуру истории, ритм и эмоциональный тон — чтобы вы могли сосредоточиться на создании контента и росте аудитории.',
+    'approach.r2.title': 'Монтаж на удержание',
+    'approach.r2.text': 'Каждый кат работает и на историю, и на алгоритм. Выстраиваю контент на максимальное удержание без потери нарративного качества и эмоционального воздействия.',
+    'approach.r3.title': 'Документальный и кинематографический взгляд',
+    'approach.r3.text': 'Обучался сценарному мастерству и драматургии в NYFA. Привношу кинематографическое мышление в YouTube, клипы и коммерческие проекты.',
+    'approach.r4.title': 'Доказанные результаты',
+    'approach.r4.text': 'Видео с 200К, 500К, 1.8М и 2.4М просмотров. Знаю, что работает для длинного YouTube, вирусных шортсов и документального сторителлинга.',
+    'skills.label': 'НАВЫКИ И ИНСТРУМЕНТЫ',
+    'skills.text1': 'Монтаж видео/фильмов и\u00a0нарративный сторителлинг. YouTube long-form и\u00a0short-form монтаж на удержание. Документальный и\u00a0кинематографический монтаж.',
+    'skills.text2': 'Работа с авторами, блогерами и продакшн-командами. Структурирование сложных историй из сырого материала. Музыкальный ритм и эмоциональный тайминг.',
+    'footer.headline': 'Есть история, которую нужно снять? <a href="mailto:bchgsv@gmail.com" class="footer-cta-inline">Напишите мне &#8594;</a>',
+    'footer.city': 'Москва'
+  }
+};
+
+function applyLang() {
+  const lang = navigator.language || navigator.userLanguage || 'en';
+  const isRu = /^(ru|kk)/i.test(lang);
+  if (!isRu) return;
+
+  document.documentElement.lang = 'ru';
+  const strings = i18n.ru;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (!strings[key]) return;
+    if (el.hasAttribute('data-i18n-html')) {
+      el.innerHTML = strings[key];
+    } else {
+      el.textContent = strings[key];
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+
+  // ---- i18n (must run before split-words) ----
+  applyLang();
 
   // ---- PAGE ENTRANCE ----
   document.body.classList.add('is-loading');

@@ -22,10 +22,10 @@
       <a href="index.html" class="nav-logo">BCHGSV<span class="nav-dot">.</span></a>
       <div class="nav-links">
         <div class="nav-pill"></div>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#work" class="nav-link">Work</a>
-        <a href="#approach" class="nav-link">Approach</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#about" class="nav-link" data-i18n="nav.about">About</a>
+        <a href="#work" class="nav-link" data-i18n="nav.work">Work</a>
+        <a href="#approach" class="nav-link" data-i18n="nav.approach">Approach</a>
+        <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
       </div>
     </div>
   </nav>
@@ -33,17 +33,17 @@
   <!-- Mobile toggle (outside nav to avoid transform containing block) -->
   <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
     <img src="assets/logomark.svg" alt="" class="mobile-menu-icon">
-    <span>Menu</span>
+    <span data-i18n="nav.menu">Menu</span>
   </button>
 
   <!-- Mobile Menu (outside nav to avoid transform containing block) -->
   <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-links">
-      <a href="#about" class="mobile-link">About</a>
-      <a href="#work" class="mobile-link">Work</a>
-      <a href="#approach" class="mobile-link">Approach</a>
-      <a href="#contact" class="mobile-link">Contact</a>
+      <a href="#about" class="mobile-link" data-i18n="nav.about">About</a>
+      <a href="#work" class="mobile-link" data-i18n="nav.work">Work</a>
+      <a href="#approach" class="mobile-link" data-i18n="nav.approach">Approach</a>
+      <a href="#contact" class="mobile-link" data-i18n="nav.contact">Contact</a>
     </div>
   </div>
 
@@ -54,14 +54,14 @@
         <div class="hero-portrait">
           <img src="assets/images/ruslan-portrait.jpg" alt="Ruslan Buchugasov" class="hero-portrait-img">
         </div>
-        <p class="hero-subtitle">Director, Cinematographer & Film Editor. I turn raw footage into structured, high-retention narratives with clear pacing and emotional rhythm.</p>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">Director, Cinematographer & Film Editor. I turn raw footage into structured, high-retention narratives with clear pacing and emotional rhythm.</p>
         <a href="#contact" class="cta-link" data-magnetic>
           <span class="cta-arrow">&#8594;</span>
-          <span>Let's work together</span>
+          <span data-i18n="hero.cta">Let's work together</span>
         </a>
       </div>
       <div class="hero-right">
-        <h1 class="heading-hero" data-split-words>Directing stories for YouTube, documentary &amp; film</h1>
+        <h1 class="heading-hero" data-split-words data-i18n="hero.heading" data-i18n-html="true">Directing stories for YouTube, documentary &amp; film</h1>
       </div>
     </div>
   </section>
@@ -70,7 +70,7 @@
   <section class="hero-project-image">
     <div class="showreel-placeholder">
       <span class="showreel-play">&#9654;</span>
-      <span class="showreel-label">Watch Showreel</span>
+      <span class="showreel-label" data-i18n="hero.showreel">Watch Showreel</span>
     </div>
   </section>
 
@@ -78,21 +78,21 @@
   <section class="section" id="about">
     <div class="container">
       <div class="section-divider">
-        <span class="section-label">ABOUT</span>
+        <span class="section-label" data-i18n="about.label">ABOUT</span>
         <span class="section-number">(01)</span>
       </div>
       <div class="why-work-content">
         <div class="about-portrait">
           <img src="assets/images/ruslan-portrait.jpg" alt="Ruslan Buchugasov" class="about-portrait-img">
         </div>
-        <p class="text-display">I take ownership of story structure, narrative flow, and final cut, so creators can focus on content and growth.</p>
-        <p class="text-body-secondary">Editing Director specializing in long-form YouTube and documentary-style storytelling. I help creators turn raw footage into structured, high-retention narratives with clear pacing and emotional rhythm.</p>
+        <p class="text-display" data-i18n="about.display">I take ownership of story structure, narrative flow, and final cut, so creators can focus on content and growth.</p>
+        <p class="text-body-secondary" data-i18n="about.body">Editing Director specializing in long-form YouTube and documentary-style storytelling. I help creators turn raw footage into structured, high-retention narratives with clear pacing and emotional rhythm.</p>
       </div>
       <!-- Raw → Story slider -->
       <div class="clarity-slider">
         <div class="clarity-labels">
-          <span class="clarity-label">Raw footage</span>
-          <span class="clarity-label">Final cut</span>
+          <span class="clarity-label" data-i18n="about.raw">Raw footage</span>
+          <span class="clarity-label" data-i18n="about.final">Final cut</span>
         </div>
         <div class="line-container">
           <div class="line-base"></div>
@@ -106,10 +106,10 @@
   <section class="section section-projects" id="work">
     <div class="container">
       <div class="section-divider">
-        <span class="section-label">FEATURED WORK<sup>(14)</sup></span>
+        <span class="section-label" data-i18n="work.label" data-i18n-html="true">FEATURED WORK<sup>(14)</sup></span>
         <a href="https://vimeo.com/bchgsv" target="_blank" rel="noopener" class="view-all-link">
           <span class="cta-arrow">&#8594;</span>
-          <span>View showreel</span>
+          <span data-i18n="work.showreel">View showreel</span>
         </a>
         <span class="section-number">(02)</span>
       </div>
@@ -117,33 +117,33 @@
         <a href="https://vimeo.com/1134886503" target="_blank" rel="noopener" class="project-card" data-tilt>
           <div class="project-image-wrapper">
             <img src="https://i.vimeocdn.com/video/2080029624-4495c76f4444135b0852df9f5daabbd57fb5cd39661e6c5c25c3b22753b09237-d_640" alt="Biomachine" class="project-thumb" loading="lazy">
-            <span class="project-view-btn">Watch</span>
+            <span class="project-view-btn" data-i18n="work.watch">Watch</span>
             <span class="project-name-badge">Biomachine</span>
-            <span class="project-meta">Director | Editor | 1.8M views</span>
+            <span class="project-meta" data-i18n="work.meta.biomachine">Director | Editor | 1.8M views</span>
           </div>
         </a>
         <a href="https://vimeo.com/1132902464" target="_blank" rel="noopener" class="project-card" data-tilt>
           <div class="project-image-wrapper">
             <img src="https://i.vimeocdn.com/video/2077310926-9f250c8c18d91d41ca8aa638a55a0b386789bf03624d572b301ba7e40e463787-d_640" alt="Yan Toples" class="project-thumb" loading="lazy">
-            <span class="project-view-btn">Watch</span>
+            <span class="project-view-btn" data-i18n="work.watch">Watch</span>
             <span class="project-name-badge">Yan Toples</span>
-            <span class="project-meta">Cinematographer | Editor | Colorist</span>
+            <span class="project-meta" data-i18n="work.meta.yantoples">Cinematographer | Editor | Colorist</span>
           </div>
         </a>
         <a href="https://vimeo.com/1135028682" target="_blank" rel="noopener" class="project-card" data-tilt>
           <div class="project-image-wrapper">
             <img src="https://i.vimeocdn.com/video/2080222295-36bf440645048194868b82d94e1becbf51bf9687db096f84944cb8c02b4dc83a-d_640" alt="Frame Tamer" class="project-thumb" loading="lazy">
-            <span class="project-view-btn">Watch</span>
+            <span class="project-view-btn" data-i18n="work.watch">Watch</span>
             <span class="project-name-badge">Frame Tamer</span>
-            <span class="project-meta">Cameraman | Director | 500K views</span>
+            <span class="project-meta" data-i18n="work.meta.frametamer">Cameraman | Director | 500K views</span>
           </div>
         </a>
         <a href="https://vimeo.com/1132899789" target="_blank" rel="noopener" class="project-card" data-tilt>
           <div class="project-image-wrapper">
             <img src="https://i.vimeocdn.com/video/2077308302-b203d5594d18ca82e919a4d9a24e7742c646b624052991df7079e90d32813cdb-d_640" alt="Frame Tamer Documentary" class="project-thumb" loading="lazy">
-            <span class="project-view-btn">Watch</span>
+            <span class="project-view-btn" data-i18n="work.watch">Watch</span>
             <span class="project-name-badge">Frame Tamer — Portrait</span>
-            <span class="project-meta">Documentary | Director | Editor</span>
+            <span class="project-meta" data-i18n="work.meta.frametamerdoc">Documentary | Director | Editor</span>
           </div>
         </a>
       </div>
@@ -154,15 +154,15 @@
   <section class="section section-choose" id="approach">
     <div class="container">
       <div class="section-divider">
-        <span class="section-label">WHY WORK WITH ME</span>
+        <span class="section-label" data-i18n="approach.label">WHY WORK WITH ME</span>
         <span class="section-number">(03)</span>
       </div>
 
       <div class="choose-heading-wrap">
-        <h2 class="choose-heading-xl">What I bring to every project</h2>
+        <h2 class="choose-heading-xl" data-i18n="approach.heading">What I bring to every project</h2>
         <a href="#contact" class="cta-link choose-heading-cta" data-magnetic>
           <span class="cta-arrow">&#8594;</span>
-          <span>Get in touch</span>
+          <span data-i18n="approach.cta">Get in touch</span>
         </a>
       </div>
 
@@ -170,10 +170,10 @@
       <div class="choose-row">
         <div class="choose-row-left">
           <span class="choose-num">01</span>
-          <span class="choose-title">Narrative ownership</span>
+          <span class="choose-title" data-i18n="approach.r1.title">Narrative ownership</span>
         </div>
         <div class="choose-row-center">
-          <p class="choose-text">I take full responsibility for story structure, pacing, and emotional tone, so you can focus on creating content and growing your audience.</p>
+          <p class="choose-text" data-i18n="approach.r1.text">I take full responsibility for story structure, pacing, and emotional tone, so you can focus on creating content and growing your audience.</p>
         </div>
       </div>
 
@@ -183,10 +183,10 @@
       <div class="choose-row">
         <div class="choose-row-left">
           <span class="choose-num">02</span>
-          <span class="choose-title">Retention-driven editing</span>
+          <span class="choose-title" data-i18n="approach.r2.title">Retention-driven editing</span>
         </div>
         <div class="choose-row-center">
-          <p class="choose-text">Every cut serves the story and the algorithm. I structure content for maximum retention without sacrificing narrative quality or emotional impact.</p>
+          <p class="choose-text" data-i18n="approach.r2.text">Every cut serves the story and the algorithm. I structure content for maximum retention without sacrificing narrative quality or emotional impact.</p>
         </div>
       </div>
 
@@ -196,10 +196,10 @@
       <div class="choose-row">
         <div class="choose-row-left">
           <span class="choose-num">03</span>
-          <span class="choose-title">Documentary & cinematic eye</span>
+          <span class="choose-title" data-i18n="approach.r3.title">Documentary & cinematic eye</span>
         </div>
         <div class="choose-row-center">
-          <p class="choose-text">Trained at NYFA in screenwriting and dramaturgy. I bring cinematic sensibility to YouTube, music videos, and commercial projects alike.</p>
+          <p class="choose-text" data-i18n="approach.r3.text">Trained at NYFA in screenwriting and dramaturgy. I bring cinematic sensibility to YouTube, music videos, and commercial projects alike.</p>
         </div>
       </div>
 
@@ -209,10 +209,10 @@
       <div class="choose-row">
         <div class="choose-row-left">
           <span class="choose-num">04</span>
-          <span class="choose-title">Proven results</span>
+          <span class="choose-title" data-i18n="approach.r4.title">Proven results</span>
         </div>
         <div class="choose-row-center">
-          <p class="choose-text">Videos reaching 200K, 500K, 1.8M and 2.4M views. I know what works for long-form YouTube, short-form viral content, and documentary storytelling.</p>
+          <p class="choose-text" data-i18n="approach.r4.text">Videos reaching 200K, 500K, 1.8M and 2.4M views. I know what works for long-form YouTube, short-form viral content, and documentary storytelling.</p>
         </div>
       </div>
     </div>
@@ -222,7 +222,7 @@
   <section class="section section-branding-matters">
     <div class="container">
       <div class="section-divider">
-        <span class="section-label">SKILLS & TOOLS</span>
+        <span class="section-label" data-i18n="skills.label">SKILLS & TOOLS</span>
         <span class="section-number">(04)</span>
       </div>
       <div class="skills-grid">
@@ -237,10 +237,10 @@
       </div>
       <div class="branding-matters-grid">
         <div class="branding-matters-col">
-          <p class="branding-matters-text">Video/Film Editing &amp; narrative storytelling. YouTube long-form &amp; short-form retention editing. Documentary &amp; cinematic editing.</p>
+          <p class="branding-matters-text" data-i18n="skills.text1" data-i18n-html="true">Video/Film Editing &amp; narrative storytelling. YouTube long-form &amp; short-form retention editing. Documentary &amp; cinematic editing.</p>
         </div>
         <div class="branding-matters-col">
-          <p class="branding-matters-text">Working with creators, influencers, and production teams. Structuring complex stories from raw footage. Music-driven pacing and emotional timing.</p>
+          <p class="branding-matters-text" data-i18n="skills.text2">Working with creators, influencers, and production teams. Structuring complex stories from raw footage. Music-driven pacing and emotional timing.</p>
         </div>
       </div>
     </div>
@@ -249,13 +249,13 @@
   <!-- Footer -->
   <footer class="footer" id="contact">
     <div class="container">
-      <h2 class="footer-headline">Have a story that needs directing? <a href="mailto:bchgsv@gmail.com" class="footer-cta-inline">Let's talk &#8594;</a></h2>
+      <h2 class="footer-headline" data-i18n="footer.headline" data-i18n-html="true">Have a story that needs directing? <a href="mailto:bchgsv@gmail.com" class="footer-cta-inline">Let's talk &#8594;</a></h2>
     </div>
     <div class="footer-content-wrap">
       <div class="container">
         <div class="footer-grid">
           <div class="footer-col">
-            <span class="footer-col-title">Moscow</span>
+            <span class="footer-col-title" data-i18n="footer.city">Moscow</span>
             <span class="footer-time" id="moscowTime"></span>
             <span class="footer-timezone">(GMT+3)</span>
           </div>
