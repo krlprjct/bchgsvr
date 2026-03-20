@@ -829,6 +829,15 @@ body.is-loading .hero-project-image {
 .footer-col > .footer-link:hover { padding-left: 20px; }
 .footer-col > .footer-link:hover::before { opacity: 1; }
 
+.footer-link-primary {
+  font-weight: 500;
+}
+
+.footer-link-secondary {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
 .footer-bottom {
   display: grid;
   grid-template-columns: 1fr auto auto auto auto auto;
