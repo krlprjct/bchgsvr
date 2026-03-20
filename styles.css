@@ -366,9 +366,6 @@ body.is-loading .hero-project-image {
   margin-bottom: 0;
   overflow: hidden;
   will-change: transform;
-  position: sticky;
-  top: 0;
-  z-index: 0;
 }
 
 .showreel-placeholder {
@@ -958,7 +955,6 @@ body.is-loading .hero-project-image {
   .hero { padding: 120px 0 40px; }
   .heading-hero { font-size: 36px; }
   .projects-grid { grid-template-columns: 1fr; }
-  .hero-project-image { position: relative; }
   .showreel-placeholder { height: 40vh; }
   .projects-grid .project-card:first-child .project-image-wrapper { aspect-ratio: 16 / 9; }
   .choose-row-left { flex-direction: row; gap: 12px; align-items: flex-start; }
