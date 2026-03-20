@@ -104,27 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const isDesktop = window.matchMedia('(min-width: 1025px)').matches;
 
-  // ---- MAGNETIC HOVER EFFECT ----
-  if (isDesktop) {
-    document.querySelectorAll('[data-magnetic]').forEach(el => {
-      el.addEventListener('mousemove', (e) => {
-        const rect = el.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        el.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-      });
-
-      el.addEventListener('mouseleave', () => {
-        el.style.transform = 'translate(0, 0)';
-        el.style.transition = 'transform 0.4s cubic-bezier(0.23, 1, 0.32, 1)';
-        setTimeout(() => { el.style.transition = ''; }, 400);
-      });
-
-      el.addEventListener('mouseenter', () => {
-        el.style.transition = 'none';
-      });
-    });
-  }
+  // ---- MAGNETIC HOVER EFFECT (disabled) ----
 
   // ---- 3D TILT ON PROJECT CARDS ----
   if (isDesktop) {
