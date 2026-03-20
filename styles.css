@@ -427,9 +427,7 @@ body.is-loading .hero-project-image {
 .section-label sup { font-size: 9px; vertical-align: super; }
 
 .section-number {
-  font-size: 16px;
-  color: var(--text-primary);
-  font-weight: 400;
+  display: none;
 }
 
 /* ======================================== ABOUT ======================================== */
@@ -477,39 +475,43 @@ body.is-loading .hero-project-image {
   padding-bottom: 80px;
 }
 
-/* Clarity Slider */
-.process-flow {
+/* Workflow Strip */
+.workflow-strip {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
+  gap: 24px;
   padding: 80px 0 40px;
-  flex-wrap: nowrap;
 }
 
-.process-step {
+.workflow-item {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  padding: 20px 24px;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 0.4s ease;
 }
 
-.process-num {
-  font-size: 11px;
+.workflow-item:hover {
+  border-color: rgba(192, 57, 43, 0.6);
+}
+
+.workflow-label {
+  font-size: 15px;
   font-weight: 500;
-  color: var(--text-muted);
-  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
-.process-name {
-  font-size: 14px;
+.workflow-desc {
+  font-size: 13px;
   font-weight: 400;
-  color: var(--text-secondary);
-  white-space: nowrap;
+  color: var(--text-muted);
 }
 
-.process-arrow {
-  font-size: 16px;
-  color: var(--text-muted);
+.workflow-dot {
+  display: none;
 }
 
 /* ======================================== PROJECTS ======================================== */
@@ -669,11 +671,13 @@ body.is-loading .hero-project-image {
 
 .choose-row-left { display: flex; gap: 40px; align-items: flex-start; }
 
-.choose-num {
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--text-primary);
-  font-family: var(--font-body);
+.choose-marker {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  flex-shrink: 0;
+  margin-top: 6px;
 }
 
 .choose-title {
@@ -891,7 +895,9 @@ body.is-loading .hero-project-image {
   .projects-grid { grid-template-columns: 1fr; }
   .project-name-badge { opacity: 1; transform: translateX(-50%) translateY(0); }
   .project-meta { color: var(--text-secondary); }
-  .choose-row-left { flex-direction: column; gap: 8px; }
+  .choose-row-left { flex-direction: row; gap: 12px; align-items: flex-start; }
+  .workflow-strip { flex-direction: column; gap: 0; }
+  .workflow-item { border-left: 2px solid rgba(255, 255, 255, 0.1); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; padding: 0 16px 10rem; }
   .footer-bottom { grid-template-columns: 1fr 1fr; gap: 8px; }
   .footer-credit { grid-column: 1 / -1; text-align: left; }
