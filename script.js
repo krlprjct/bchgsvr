@@ -11,9 +11,10 @@ const i18n = {
     'nav.contact': 'Контакт',
     'nav.menu': 'Меню',
     'hero.subtitle': 'Режиссёр, оператор и монтажёр. Превращаю сырой материал в структурированные, цепляющие истории с чётким ритмом и эмоциональной динамикой.',
-    'hero.cta': 'Начать проект',
+    'hero.cta': 'Написать в Telegram',
     'hero.heading': 'Создаю истории для YouTube, документалок и\u00a0кино',
-    'hero.showreel': 'Смотреть шоурил',
+    'hero.featured': 'Главный проект',
+    'cta.telegram': 'Написать',
     'about.label': 'ОБО МНЕ',
     'about.display': 'Я беру на себя структуру истории, нарративный поток и финальный монтаж — чтобы авторы могли сосредоточиться на контенте и росте.',
     'about.body': 'Монтажёр-режиссёр. Специализируюсь на длинных YouTube-форматах и документальном сторителлинге. Помогаю авторам превращать сырой материал в структурированные, удерживающие внимание истории с чётким ритмом.',
@@ -209,18 +210,23 @@ document.addEventListener('DOMContentLoaded', () => {
   let scrollThreshold = 100;
   let ticking = false;
 
+  const floatingCta = document.getElementById('floatingCta');
+
   function handleNavScroll() {
     const currentY = window.scrollY;
     if (currentY > scrollThreshold) {
       if (currentY > lastScrollY && currentY - lastScrollY > 5) {
         // Scrolling down
         navbar.classList.add('nav-hidden');
+        if (floatingCta) floatingCta.classList.add('cta-hidden');
       } else if (lastScrollY > currentY && lastScrollY - currentY > 5) {
         // Scrolling up
         navbar.classList.remove('nav-hidden');
+        if (floatingCta) floatingCta.classList.remove('cta-hidden');
       }
     } else {
       navbar.classList.remove('nav-hidden');
+      if (floatingCta) floatingCta.classList.remove('cta-hidden');
     }
     lastScrollY = currentY;
     ticking = false;

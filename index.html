@@ -80,12 +80,21 @@
     </div>
   </section>
 
-  <!-- Full-width Showreel Image -->
+  <!-- Featured Project -->
   <section class="hero-project-image">
-    <div class="showreel-placeholder">
-      <span class="showreel-play">&#9654;</span>
-      <span class="showreel-label" data-i18n="hero.showreel">Watch Showreel</span>
-    </div>
+    <a href="https://vimeo.com/1134886503" target="_blank" rel="noopener" class="featured-project-link">
+      <img src="https://i.vimeocdn.com/video/2080029624-4495c76f4444135b0852df9f5daabbd57fb5cd39661e6c5c25c3b22753b09237-d_640" alt="Biomachine" class="featured-project-img">
+      <div class="featured-project-overlay">
+        <div class="featured-project-info">
+          <span class="featured-project-tag" data-i18n="hero.featured">Featured Project</span>
+          <span class="featured-project-title">Biomachine</span>
+        </div>
+        <div class="featured-project-cta">
+          <span class="featured-project-views">1.8M views</span>
+          <span class="featured-project-play">&#9654; Watch</span>
+        </div>
+      </div>
+    </a>
   </section>
 
   <!-- Section 01: About -->
@@ -133,32 +142,44 @@
           <div class="project-image-wrapper">
             <img src="https://i.vimeocdn.com/video/2080029624-4495c76f4444135b0852df9f5daabbd57fb5cd39661e6c5c25c3b22753b09237-d_640" alt="Biomachine" class="project-thumb" loading="lazy">
             <span class="project-view-btn" data-i18n="work.watch">Watch</span>
-            <span class="project-name-badge">Biomachine</span>
-            <span class="project-meta" data-i18n="work.meta.biomachine">Director | Editor | 1.8M views</span>
+          </div>
+          <div class="project-info-row">
+            <span class="project-num">(01)</span>
+            <span class="project-title">Biomachine</span>
+            <span class="project-year">1.8M views</span>
           </div>
         </a>
         <a href="https://vimeo.com/1132902464" target="_blank" rel="noopener" class="project-card" data-tilt>
           <div class="project-image-wrapper">
             <img src="https://i.vimeocdn.com/video/2077310926-9f250c8c18d91d41ca8aa638a55a0b386789bf03624d572b301ba7e40e463787-d_640" alt="Yan Toples" class="project-thumb" loading="lazy">
             <span class="project-view-btn" data-i18n="work.watch">Watch</span>
-            <span class="project-name-badge">Yan Toples</span>
-            <span class="project-meta" data-i18n="work.meta.yantoples">Cinematographer | Editor | Colorist</span>
+          </div>
+          <div class="project-info-row">
+            <span class="project-num">(02)</span>
+            <span class="project-title">Yan Toples</span>
+            <span class="project-year">2024</span>
           </div>
         </a>
         <a href="https://vimeo.com/1135028682" target="_blank" rel="noopener" class="project-card" data-tilt>
           <div class="project-image-wrapper">
             <img src="https://i.vimeocdn.com/video/2080222295-36bf440645048194868b82d94e1becbf51bf9687db096f84944cb8c02b4dc83a-d_640" alt="Frame Tamer" class="project-thumb" loading="lazy">
             <span class="project-view-btn" data-i18n="work.watch">Watch</span>
-            <span class="project-name-badge">Frame Tamer</span>
-            <span class="project-meta" data-i18n="work.meta.frametamer">Cameraman | Director | 500K views</span>
+          </div>
+          <div class="project-info-row">
+            <span class="project-num">(03)</span>
+            <span class="project-title">Frame Tamer</span>
+            <span class="project-year">500K views</span>
           </div>
         </a>
         <a href="https://vimeo.com/1132899789" target="_blank" rel="noopener" class="project-card" data-tilt>
           <div class="project-image-wrapper">
             <img src="https://i.vimeocdn.com/video/2077308302-b203d5594d18ca82e919a4d9a24e7742c646b624052991df7079e90d32813cdb-d_640" alt="Frame Tamer Documentary" class="project-thumb" loading="lazy">
             <span class="project-view-btn" data-i18n="work.watch">Watch</span>
-            <span class="project-name-badge">Frame Tamer — Portrait</span>
-            <span class="project-meta" data-i18n="work.meta.frametamerdoc">Documentary | Director | Editor</span>
+          </div>
+          <div class="project-info-row">
+            <span class="project-num">(04)</span>
+            <span class="project-title">Frame Tamer — Portrait</span>
+            <span class="project-year">2024</span>
           </div>
         </a>
       </div>
@@ -285,7 +306,7 @@
             <a href="https://instagram.com/bchgsv" target="_blank" rel="noopener" class="footer-link">Instagram</a>
           </div>
           <div class="footer-col">
-            <a href="https://t.me/bchgsv" target="_blank" rel="noopener" class="footer-link footer-link-primary">Telegram &#8594;</a>
+            <a href="https://t.me/bchgsv" target="_blank" rel="noopener" class="footer-link footer-link-primary">Telegram</a>
             <a href="mailto:bchgsv@gmail.com" class="footer-link footer-link-secondary">bchgsv@gmail.com</a>
           </div>
         </div>
@@ -304,6 +325,11 @@
       <img src="assets/logomark-gradient.svg" alt="" class="footer-logomark-img">
     </div>
   </footer>
+
+  <!-- Floating Telegram CTA -->
+  <a href="https://t.me/bchgsv" target="_blank" rel="noopener" class="floating-cta" id="floatingCta">
+    <span data-i18n="cta.telegram">Get in touch</span>
+  </a>
 
   <script src="script.js"></script>
 </body>
