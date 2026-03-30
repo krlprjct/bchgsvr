@@ -167,15 +167,16 @@ document.addEventListener('DOMContentLoaded', () => {
   function openMobileMenu() {
     mobileMenu.classList.add('open');
     if (mobileOverlay) mobileOverlay.classList.add('open');
-    mobileToggle.style.opacity = '0';
-    mobileToggle.style.pointerEvents = 'none';
+    mobileToggle.classList.add('hidden');
   }
 
   function closeMobileMenu() {
     mobileMenu.classList.remove('open');
     if (mobileOverlay) mobileOverlay.classList.remove('open');
-    mobileToggle.style.opacity = '1';
-    mobileToggle.style.pointerEvents = 'auto';
+    // Small delay so menu slide-out plays before toggle appears
+    setTimeout(() => {
+      mobileToggle.classList.remove('hidden');
+    }, 150);
   }
 
   if (mobileToggle && mobileMenu) {
@@ -204,40 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.addEventListener('mouseenter', () => { navPill.style.opacity = '1'; });
   }
 
-  // ---- NAV SCROLL HIDE/SHOW ----
-  const navbar = document.querySelector('.navbar');
-  let lastScrollY = 0;
-  let scrollThreshold = 100;
-  let ticking = false;
-
-  const floatingCta = document.getElementById('floatingCta');
-
-  function handleNavScroll() {
-    const currentY = window.scrollY;
-    if (currentY > scrollThreshold) {
-      if (currentY > lastScrollY && currentY - lastScrollY > 5) {
-        // Scrolling down
-        navbar.classList.add('nav-hidden');
-        if (floatingCta) floatingCta.classList.add('cta-hidden');
-      } else if (lastScrollY > currentY && lastScrollY - currentY > 5) {
-        // Scrolling up
-        navbar.classList.remove('nav-hidden');
-        if (floatingCta) floatingCta.classList.remove('cta-hidden');
-      }
-    } else {
-      navbar.classList.remove('nav-hidden');
-      if (floatingCta) floatingCta.classList.remove('cta-hidden');
-    }
-    lastScrollY = currentY;
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(handleNavScroll);
-      ticking = true;
-    }
-  }, { passive: true });
+  // ---- NAV — always visible (fixed) ----
 
 
   // ---- GSAP SCROLL ANIMATIONS ----
