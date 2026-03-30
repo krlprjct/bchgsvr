@@ -246,50 +246,61 @@ document.addEventListener('DOMContentLoaded', () => {
       gsap.registerPlugin(ScrollTrigger);
     }
 
-    // --- PAGE ENTRANCE ANIMATION ---
+    // --- PAGE ENTRANCE ANIMATION (Golden Suisse-inspired) ---
     const entranceTl = gsap.timeline({
       onComplete: () => {
         document.body.classList.remove('is-loading');
       }
     });
 
-    // Fade in navbar
+    // 1. Navbar — fast fade like GS logo (0.3s)
     entranceTl.fromTo('.navbar',
-      { y: -30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
-      0.2
+      { opacity: 0 },
+      { opacity: 1, duration: 0.3, ease: 'none' },
+      0.1
     );
 
-    // Hero subtitle — clip-path reveal (text slides up into view)
-    entranceTl.to('.hero-subtitle', {
-      clipPath: 'inset(0 0 0% 0)',
-      duration: 1,
-      ease: 'power3.inOut'
-    }, 0.5);
-
-    entranceTl.fromTo('.cta-link',
-      { y: 15, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
-      1.0
-    );
-
-    // Split words reveal for hero heading
+    // 2. Hero heading — words rise up with stagger (GS titleAppearence 2s feel)
     const heroWords = document.querySelectorAll('.heading-hero .split-word-inner');
     if (heroWords.length > 0) {
       gsap.set(heroWords, { y: '110%' });
       entranceTl.to(heroWords, {
         y: '0%',
-        duration: 0.8,
-        stagger: 0.05,
-        ease: 'power3.out'
-      }, 0.3);
+        duration: 1.2,
+        stagger: 0.06,
+        ease: 'power4.out'
+      }, 0.2);
     }
 
-    // Showreel section
+    // 3. Hero portrait — GS scaleCard style (scale 0 → 1)
+    const heroPortrait = document.querySelector('.hero-portrait');
+    if (heroPortrait) {
+      entranceTl.fromTo(heroPortrait,
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 1, ease: 'back.out(1.4)' },
+        0.4
+      );
+    }
+
+    // 4. Hero subtitle — GS fadeIn (translateY 50px → 0, opacity 0 → 1)
+    entranceTl.to('.hero-subtitle', {
+      y: 0, opacity: 1,
+      duration: 1.2,
+      ease: 'power3.out'
+    }, 0.6);
+
+    // 5. CTA link — GS spanAnim style (delayed appearance, invisible then fade)
+    entranceTl.fromTo('.cta-link',
+      { opacity: 0 },
+      { opacity: 1, duration: 0.8, ease: 'power2.out' },
+      1.4
+    );
+
+    // 6. Showreel — GS scalePicture (scale 0.7 → 1, opacity fade)
     entranceTl.fromTo('.hero-project-image',
-      { y: 60, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
-      0.7
+      { scale: 0.85, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 1.4, ease: 'power3.out' },
+      0.8
     );
 
     // --- TEXT DISPLAY REVEAL ---
@@ -335,58 +346,58 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Footer headline
+    // Footer headline — GS animateTitle (translateY 50px, 1.2s)
     gsap.utils.toArray('.footer-headline').forEach(el => {
       gsap.fromTo(el,
-        { y: 40, opacity: 0, immediateRender: false },
+        { y: 50, opacity: 0, immediateRender: false },
         {
           y: 0, opacity: 1,
-          duration: 0.9,
+          duration: 1.2,
           ease: 'power3.out',
           scrollTrigger: { trigger: el, start: 'top 85%', once: true }
         }
       );
     });
 
-    // Section dividers
+    // Section dividers — GS fadeIn style (translateY 50px)
     gsap.utils.toArray('.section-divider').forEach(el => {
       gsap.fromTo(el,
-        { y: 20, opacity: 0, immediateRender: false },
+        { y: 50, opacity: 0, immediateRender: false },
         {
           y: 0, opacity: 1,
-          duration: 0.6,
+          duration: 1,
           ease: 'power3.out',
           scrollTrigger: { trigger: el, start: 'top 85%', once: true }
         }
       );
     });
 
-    // Choose rows — dim-to-bright on scroll
+    // Choose rows — GS fadeIn (translateY + opacity) with scrub
     gsap.utils.toArray('.choose-row').forEach(el => {
       gsap.fromTo(el,
-        { opacity: 0.35, immediateRender: false },
+        { y: 50, opacity: 0, immediateRender: false },
         {
-          opacity: 1,
+          y: 0, opacity: 1,
           duration: 0.6,
           ease: 'power2.out',
           scrollTrigger: {
             trigger: el,
-            start: 'top 75%',
-            end: 'top 40%',
+            start: 'top 80%',
+            end: 'top 50%',
             scrub: true
           }
         }
       );
     });
 
-    // Project cards — staggered reveal with scale
+    // Project cards — GS scalePicture style (scale 0.85 → 1 + translateY)
     gsap.utils.toArray('.project-card').forEach((el, i) => {
       gsap.fromTo(el,
-        { y: 60, opacity: 0, scale: 0.95, immediateRender: false },
+        { y: 50, opacity: 0, scale: 0.85, immediateRender: false },
         {
           y: 0, opacity: 1, scale: 1,
-          duration: 0.9,
-          delay: i * 0.12,
+          duration: 1.2,
+          delay: i * 0.15,
           ease: 'power3.out',
           scrollTrigger: { trigger: el, start: 'top 85%', once: true }
         }
@@ -473,6 +484,47 @@ document.addEventListener('DOMContentLoaded', () => {
           delay: i * 0.15,
           ease: 'power3.out',
           scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+        }
+      );
+    });
+
+    // --- Golden Suisse-style: Workflow items staggered fade-up ---
+    gsap.utils.toArray('.workflow-item').forEach((el, i) => {
+      gsap.fromTo(el,
+        { y: 40, opacity: 0, immediateRender: false },
+        {
+          y: 0, opacity: 1,
+          duration: 0.8,
+          delay: i * 0.12,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 90%', once: true }
+        }
+      );
+    });
+
+    // --- Golden Suisse-style: Choose separators scaleX reveal ---
+    gsap.utils.toArray('.choose-separator').forEach(el => {
+      gsap.fromTo(el,
+        { scaleX: 0, immediateRender: false },
+        {
+          scaleX: 1,
+          duration: 1,
+          ease: 'power3.inOut',
+          scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+        }
+      );
+    });
+
+    // --- Golden Suisse-style: Footer grid columns staggered ---
+    gsap.utils.toArray('.footer-grid .footer-col').forEach((el, i) => {
+      gsap.fromTo(el,
+        { y: 30, opacity: 0, immediateRender: false },
+        {
+          y: 0, opacity: 1,
+          duration: 0.7,
+          delay: i * 0.08,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: '.footer-grid', start: 'top 85%', once: true }
         }
       );
     });
