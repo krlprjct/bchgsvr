@@ -288,8 +288,18 @@ body.is-loading .hero-project-image {
   color: var(--text-primary);
   font-weight: 400;
   max-width: 380px;
+}
+
+/* Subtitle split-word overrides — softer spacing for body text */
+.hero-subtitle .split-word {
+  overflow: visible;
+  line-height: 1.5;
+  padding: 0;
+}
+
+.hero-subtitle .split-word-inner {
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateY(12px);
   will-change: transform, opacity;
 }
 

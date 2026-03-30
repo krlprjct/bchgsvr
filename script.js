@@ -282,12 +282,16 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     }
 
-    // 4. Hero subtitle — GS fadeIn (translateY 50px → 0, opacity 0 → 1)
-    entranceTl.to('.hero-subtitle', {
-      y: 0, opacity: 1,
-      duration: 1.2,
-      ease: 'power3.out'
-    }, 0.6);
+    // 4. Hero subtitle — word-by-word stagger (each word fades up individually)
+    const subtitleWords = document.querySelectorAll('.hero-subtitle .split-word-inner');
+    if (subtitleWords.length > 0) {
+      entranceTl.to(subtitleWords, {
+        y: 0, opacity: 1,
+        duration: 0.6,
+        stagger: 0.03,
+        ease: 'power3.out'
+      }, 0.8);
+    }
 
     // 5. CTA link — GS spanAnim style (delayed appearance, invisible then fade)
     entranceTl.fromTo('.cta-link',
