@@ -361,19 +361,19 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     });
 
-    // Choose cards — staggered fade-in
-    gsap.utils.toArray('.choose-row').forEach((el, i) => {
+    // Choose rows — dim-to-bright on scroll
+    gsap.utils.toArray('.choose-row').forEach(el => {
       gsap.fromTo(el,
-        { y: 30, opacity: 0, immediateRender: false },
+        { opacity: 0.35, immediateRender: false },
         {
-          y: 0, opacity: 1,
-          duration: 0.7,
-          delay: i * 0.1,
-          ease: 'power3.out',
+          opacity: 1,
+          duration: 0.6,
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: el,
-            start: 'top 85%',
-            once: true
+            start: 'top 75%',
+            end: 'top 40%',
+            scrub: true
           }
         }
       );
