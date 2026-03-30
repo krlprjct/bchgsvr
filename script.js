@@ -11,7 +11,7 @@ const i18n = {
     'nav.contact': 'Контакт',
     'nav.menu': 'Меню',
     'hero.subtitle': 'Режиссёр, оператор и монтажёр. Превращаю сырой материал в структурированные, цепляющие истории с чётким ритмом и эмоциональной динамикой.',
-    'hero.cta': 'Написать в Telegram',
+    'hero.cta': 'Связаться',
     'hero.heading': 'Создаю истории для YouTube, документалок и\u00a0кино',
     'hero.featured': 'Главный проект',
     'cta.telegram': 'Написать',
@@ -42,7 +42,7 @@ const i18n = {
     'skills.label': 'НАВЫКИ И ИНСТРУМЕНТЫ',
     'skills.text1': 'Монтаж видео/фильмов и\u00a0нарративный сторителлинг. YouTube long-form и\u00a0short-form монтаж на удержание. Документальный и\u00a0кинематографический монтаж.',
     'skills.text2': 'Работа с авторами, блогерами и продакшн-командами. Структурирование сложных историй из сырого материала. Музыкальный ритм и эмоциональный тайминг.',
-    'footer.headline': 'Есть история, которую нужно снять? <a href="mailto:bchgsv@gmail.com" class="footer-cta-inline">Напишите мне &#8594;</a>',
+    'footer.headline': 'Есть история, которую нужно снять? <a href="https://t.me/bchgsv" target="_blank" rel="noopener" class="footer-cta-inline">Связаться</a>',
     'footer.city': 'Москва',
     'footer.copy': '&copy;2026 Руслан Бучугасов',
     'footer.credit': 'NYFA Сценарное мастерство и\u00a0драматургия \'24'
@@ -492,18 +492,48 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     });
 
-    // --- Golden Suisse-style: Workflow items staggered fade-up ---
-    gsap.utils.toArray('.workflow-item').forEach((el, i) => {
+    // --- Workflow steps staggered fade-up + progress fill ---
+    gsap.utils.toArray('.workflow-step').forEach((el, i) => {
       gsap.fromTo(el,
         { y: 40, opacity: 0, immediateRender: false },
         {
           y: 0, opacity: 1,
           duration: 0.8,
-          delay: i * 0.12,
+          delay: i * 0.2,
           ease: 'power3.out',
           scrollTrigger: { trigger: el, start: 'top 90%', once: true }
         }
       );
+
+      // Animate progress bar fill on scroll
+      const fill = el.querySelector('.workflow-progress-fill');
+      if (fill) {
+        gsap.fromTo(fill,
+          { width: '0%', immediateRender: false },
+          {
+            width: '100%',
+            duration: 1.2,
+            delay: i * 0.3,
+            ease: 'power3.inOut',
+            scrollTrigger: { trigger: el, start: 'top 85%', once: true }
+          }
+        );
+      }
+
+      // Fade in number
+      const num = el.querySelector('.workflow-num');
+      if (num) {
+        gsap.fromTo(num,
+          { opacity: 0, scale: 0.5, immediateRender: false },
+          {
+            opacity: 0.3, scale: 1,
+            duration: 0.6,
+            delay: i * 0.2,
+            ease: 'back.out(2)',
+            scrollTrigger: { trigger: el, start: 'top 90%', once: true }
+          }
+        );
+      }
     });
 
     // --- Golden Suisse-style: Choose separators scaleX reveal ---
