@@ -660,6 +660,7 @@ body.is-loading .hero-project-image {
   width: 100%;
   max-width: 100%;
   padding: 60px 0 0;
+  position: relative;
 }
 
 .transform-labels {
@@ -679,23 +680,24 @@ body.is-loading .hero-project-image {
   position: relative;
   height: 1px;
   background: var(--border);
+  overflow: hidden;
 }
 
-/* Dots at each end */
-.transform-track::before,
-.transform-track::after {
+/* Dots at each end — on the slider wrapper so overflow:hidden on track doesn't clip them */
+.transform-slider::before,
+.transform-slider::after {
   content: '';
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: -3px;
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: var(--text-muted);
+  z-index: 2;
 }
 
-.transform-track::before { left: -3px; }
-.transform-track::after { right: -3px; }
+.transform-slider::before { left: 0; }
+.transform-slider::after { right: 0; }
 
 /* Glowing gradient bar that slides on scroll */
 .transform-glow {
