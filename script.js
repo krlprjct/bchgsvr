@@ -498,19 +498,6 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     }
 
-    // --- Workflow steps staggered fade-up ---
-    gsap.utils.toArray('.workflow-step').forEach((el, i) => {
-      gsap.fromTo(el,
-        { y: 40, opacity: 0, immediateRender: false },
-        {
-          y: 0, opacity: 1,
-          duration: 0.8,
-          delay: i * 0.15,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: el, start: 'top 90%', once: true }
-        }
-      );
-    });
 
     // --- Golden Suisse-style: Choose separators scaleX reveal ---
     gsap.utils.toArray('.choose-separator').forEach(el => {

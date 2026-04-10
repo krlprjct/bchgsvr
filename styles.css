@@ -601,71 +601,6 @@ body.is-loading .hero-project-image {
   will-change: transform;
 }
 
-/* Workflow Strip — vertical rows */
-.workflow-strip {
-  display: flex;
-  flex-direction: column;
-  padding: 80px 0 40px;
-}
-
-.workflow-step {
-  border-top: 1px solid var(--border);
-  padding: 40px 0;
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  grid-template-rows: auto auto;
-  gap: 0 32px;
-  cursor: default;
-  transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.workflow-step:last-child {
-  border-bottom: 1px solid var(--border);
-}
-
-/* Dim siblings on hover */
-.workflow-strip:hover .workflow-step:not(:hover) {
-  opacity: 0.4;
-}
-
-.workflow-step-header {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 32px;
-  align-items: baseline;
-}
-
-.workflow-num {
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--text-muted);
-  transition: color 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.workflow-step:hover .workflow-num {
-  color: var(--text-primary);
-}
-
-.workflow-label {
-  font-family: var(--font-heading);
-  font-size: clamp(24px, 3vw, 40px);
-  font-weight: 400;
-  color: var(--text-primary);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-}
-
-.workflow-desc {
-  grid-column: 2 / -1;
-  font-size: 16px;
-  font-weight: 400;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  max-width: 680px;
-  padding-top: 16px;
-}
 
 /* Golden Suisse-style staggered fade-in for choose separators */
 .choose-separator {
@@ -1136,10 +1071,6 @@ body.is-loading .hero-project-image {
   .showreel-placeholder { height: 40vh; }
   .projects-grid .project-card:first-child .project-image-wrapper { aspect-ratio: 16 / 9; }
   .choose-row-left { flex-direction: row; gap: 12px; align-items: flex-start; }
-  .workflow-step { padding: 28px 0; }
-  .workflow-step-header { grid-template-columns: 50px 1fr; gap: 20px; }
-  .workflow-step { grid-template-columns: 50px 1fr; gap: 0 20px; }
-  .workflow-desc { max-width: none; }
   .footer .footer-headline { padding: 80px 0 60px; padding-top: 80px; }
   .footer-headline { font-size: 28px; line-height: 1.2; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; padding: 0 16px 10rem; }
