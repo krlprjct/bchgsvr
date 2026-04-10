@@ -219,7 +219,7 @@ body.is-loading .hero-project-image {
   transform: translateY(20px) scale(0.92);
   transition:
     opacity 350ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
   pointer-events: none;
 }
 
@@ -321,7 +321,7 @@ body.is-loading .hero-project-image {
   height: 100%;
   object-fit: cover;
   filter: grayscale(0.3);
-  transition: filter 0.5s ease, transform 0.5s ease;
+  transition: filter 400ms cubic-bezier(0.23, 1, 0.32, 1), transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .hero-portrait:hover .hero-portrait-img {
@@ -426,37 +426,73 @@ body.is-loading .hero-project-image {
   will-change: transform;
 }
 
-.showreel-placeholder {
+.showreel-wrapper {
+  position: relative;
   width: 100%;
-  height: 80vh;
-  background: linear-gradient(135deg, #111 0%, #1a1a1a 50%, #0d0d0d 100%);
+  aspect-ratio: 21 / 9;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.showreel-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.showreel-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.showreel-play-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 16px;
-  cursor: pointer;
-  transition: background 0.5s ease;
+  gap: 12px;
+  pointer-events: auto;
+  opacity: 0;
+  transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
 }
-.showreel-placeholder:hover { background: linear-gradient(135deg, #151515 0%, #222 50%, #111 100%); }
 
-.showreel-play {
-  font-size: 48px;
+.showreel-wrapper:hover .showreel-play-btn {
+  opacity: 1;
+}
+
+.showreel-play-icon {
+  font-size: 32px;
   color: var(--text-primary);
-  width: 80px; height: 80px;
-  border: 2px solid var(--text-primary);
+  width: 72px; height: 72px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.3s ease, color 0.3s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(10, 10, 10, 0.4);
+  transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1), background 200ms cubic-bezier(0.23, 1, 0.32, 1);
 }
-.showreel-placeholder:hover .showreel-play { background: var(--text-primary); color: var(--bg); }
+
+.showreel-play-btn:hover .showreel-play-icon {
+  transform: scale(1.08);
+  background: rgba(10, 10, 10, 0.6);
+}
+.showreel-play-btn:active .showreel-play-icon {
+  transform: scale(0.97);
+}
 
 .showreel-label {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7);
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -516,7 +552,7 @@ body.is-loading .hero-project-image {
   height: 100%;
   object-fit: cover;
   filter: grayscale(0.3);
-  transition: filter 0.5s ease, transform 0.5s ease;
+  transition: filter 400ms cubic-bezier(0.23, 1, 0.32, 1), transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .about-portrait:hover .about-portrait-img {
@@ -838,7 +874,7 @@ body.is-loading .hero-project-image {
   font-size: 14px;
   font-weight: 400;
   color: var(--text-secondary);
-  transition: border-color 0.3s ease, color 0.3s ease;
+  transition: border-color 250ms cubic-bezier(0.23, 1, 0.32, 1), color 250ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 .skill-tag:hover { border-color: #c0392b; color: var(--text-primary); }
 
@@ -876,7 +912,7 @@ body.is-loading .hero-project-image {
   width: 1400px;
   max-width: none;
   opacity: 0.6;
-  animation: footerGlow 6s ease-in-out infinite, footerColorShift 12s ease-in-out infinite;
+  animation: footerGlow 6s ease-in-out infinite;
   will-change: opacity, filter;
   transform-origin: center center;
   margin-bottom: -45%;
@@ -885,13 +921,6 @@ body.is-loading .hero-project-image {
 @keyframes footerGlow {
   0%, 100% { opacity: 0.4; }
   50% { opacity: 0.7; }
-}
-@keyframes footerColorShift {
-  0%   { filter: hue-rotate(0deg); }
-  25%  { filter: hue-rotate(30deg); }
-  50%  { filter: hue-rotate(60deg); }
-  75%  { filter: hue-rotate(30deg); }
-  100% { filter: hue-rotate(0deg); }
 }
 
 .footer-content-wrap {
@@ -1068,7 +1097,7 @@ body.is-loading .hero-project-image {
   .hero { padding: 120px 0 40px; }
   .heading-hero { font-size: 36px; }
   .projects-grid { grid-template-columns: 1fr; }
-  .showreel-placeholder { height: 40vh; }
+  .showreel-wrapper { aspect-ratio: 16 / 9; }
   .projects-grid .project-card:first-child .project-image-wrapper { aspect-ratio: 16 / 9; }
   .choose-row-left { flex-direction: row; gap: 12px; align-items: flex-start; }
   .footer .footer-headline { padding: 80px 0 60px; padding-top: 80px; }
