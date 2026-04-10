@@ -529,6 +529,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }
 
+  // ---- SHOWREEL LIGHTBOX ----
+  const showreelPlayBtn = document.getElementById('showreelPlayBtn');
+  const lightbox = document.getElementById('showreelLightbox');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxIframe = document.getElementById('lightboxIframe');
+  const vimeoVideoId = '1134886503';
+
+  function openLightbox() {
+    lightboxIframe.src = `https://player.vimeo.com/video/${vimeoVideoId}?autoplay=1&title=0&byline=0&portrait=0&quality=1080p`;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => { lightboxIframe.src = ''; }, 300);
+  }
+
+  if (showreelPlayBtn) showreelPlayBtn.addEventListener('click', openLightbox);
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightbox) lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox && lightbox.classList.contains('open')) closeLightbox();
+  });
+
+  // Also make the showreel wrapper clickable (click anywhere on the video)
+  const showreelWrapper = document.querySelector('.showreel-wrapper');
+  if (showreelWrapper) {
+    showreelWrapper.style.cursor = 'pointer';
+    showreelWrapper.addEventListener('click', (e) => {
+      if (e.target.closest('.showreel-play-btn')) return;
+      openLightbox();
+    });
+  }
+
+  // Project cards → open in lightbox instead of navigating away
+  document.querySelectorAll('.project-card[data-vimeo]').forEach(card => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      const videoId = card.getAttribute('data-vimeo');
+      if (videoId && lightboxIframe && lightbox) {
+        lightboxIframe.src = `https://player.vimeo.com/video/${videoId}?autoplay=1&title=0&byline=0&portrait=0&quality=1080p`;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
   // ---- SMOOTH SCROLL ----
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

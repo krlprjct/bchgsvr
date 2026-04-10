@@ -98,13 +98,25 @@
               class="showreel-iframe"
               loading="lazy"></iframe>
       <div class="showreel-overlay">
-        <a href="https://vimeo.com/1134886503" target="_blank" rel="noopener" class="showreel-play-btn">
+        <button type="button" class="showreel-play-btn" id="showreelPlayBtn">
           <span class="showreel-play-icon">&#9654;</span>
           <span class="showreel-label" data-i18n="hero.showreel">Watch Showreel</span>
-        </a>
+        </button>
       </div>
     </div>
   </section>
+
+  <!-- Showreel Lightbox -->
+  <div class="lightbox" id="showreelLightbox">
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <div class="lightbox-content">
+      <iframe id="lightboxIframe"
+              frameborder="0"
+              allow="autoplay; fullscreen"
+              allowfullscreen
+              class="lightbox-iframe"></iframe>
+    </div>
+  </div>
 
   <!-- Section 01: About -->
   <section class="section" id="about">
@@ -139,7 +151,7 @@
         </a>
       </div>
       <div class="projects-grid">
-        <a href="https://vimeo.com/1134886503" target="_blank" rel="noopener" class="project-card" data-tilt>
+        <a href="https://vimeo.com/1134886503" class="project-card" data-tilt data-vimeo="1134886503">
           <div class="project-image-wrapper">
             <img src="https://i.vimeocdn.com/video/2080029624-4495c76f4444135b0852df9f5daabbd57fb5cd39661e6c5c25c3b22753b09237-d_640" alt="Biomachine" class="project-thumb" loading="lazy">
             <span class="project-view-btn" data-i18n="work.watch">Watch</span>
@@ -149,7 +161,7 @@
             <span class="project-year">1.8M views</span>
           </div>
         </a>
-        <a href="https://vimeo.com/1132902464" target="_blank" rel="noopener" class="project-card" data-tilt>
+        <a href="https://vimeo.com/1132902464" class="project-card" data-tilt data-vimeo="1132902464">
           <div class="project-image-wrapper">
             <img src="https://i.vimeocdn.com/video/2077310926-9f250c8c18d91d41ca8aa638a55a0b386789bf03624d572b301ba7e40e463787-d_640" alt="Yan Toples" class="project-thumb" loading="lazy">
             <span class="project-view-btn" data-i18n="work.watch">Watch</span>
@@ -159,7 +171,7 @@
             <span class="project-year">2024</span>
           </div>
         </a>
-        <a href="https://vimeo.com/1135028682" target="_blank" rel="noopener" class="project-card" data-tilt>
+        <a href="https://vimeo.com/1135028682" class="project-card" data-tilt data-vimeo="1135028682">
           <div class="project-image-wrapper">
             <img src="https://i.vimeocdn.com/video/2080222295-36bf440645048194868b82d94e1becbf51bf9687db096f84944cb8c02b4dc83a-d_640" alt="Frame Tamer" class="project-thumb" loading="lazy">
             <span class="project-view-btn" data-i18n="work.watch">Watch</span>
@@ -169,7 +181,7 @@
             <span class="project-year">500K views</span>
           </div>
         </a>
-        <a href="https://vimeo.com/1132899789" target="_blank" rel="noopener" class="project-card" data-tilt>
+        <a href="https://vimeo.com/1132899789" class="project-card" data-tilt data-vimeo="1132899789">
           <div class="project-image-wrapper">
             <img src="https://i.vimeocdn.com/video/2077308302-b203d5594d18ca82e919a4d9a24e7742c646b624052991df7079e90d32813cdb-d_640" alt="Frame Tamer Documentary" class="project-thumb" loading="lazy">
             <span class="project-view-btn" data-i18n="work.watch">Watch</span>
