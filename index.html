@@ -24,6 +24,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <noscript>
+    <style>
+      body.is-loading { overflow: auto; }
+      body.is-loading .navbar,
+      body.is-loading .hero,
+      body.is-loading .hero-project-image { opacity: 1; }
+      .split-word-inner { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
@@ -97,25 +106,39 @@
         <p class="text-display" data-i18n="about.display">I take ownership of story structure, narrative flow, and final cut, so creators can focus on content and growth.</p>
         <p class="text-body-secondary" data-i18n="about.body">Editing Director specializing in long-form YouTube and documentary-style storytelling. I help creators turn raw footage into structured, high-retention narratives with clear pacing and emotional rhythm.</p>
       </div>
+      <!-- Transformation slider -->
+      <div class="transform-slider">
+        <div class="transform-labels">
+          <span class="transform-label" data-i18n="about.sliderStart">Footage</span>
+          <span class="transform-label" data-i18n="about.sliderEnd">Story</span>
+        </div>
+        <div class="transform-track">
+          <div class="transform-glow"></div>
+        </div>
+      </div>
+
       <!-- Workflow -->
       <div class="workflow-strip">
         <div class="workflow-step">
-          <span class="workflow-num">01</span>
-          <div class="workflow-progress"><div class="workflow-progress-fill"></div></div>
-          <span class="workflow-label" data-i18n="about.step1">Pre-production</span>
-          <span class="workflow-desc" data-i18n="about.step1desc">Script & storyboard</span>
+          <div class="workflow-step-header">
+            <span class="workflow-num">01</span>
+            <span class="workflow-label" data-i18n="about.step1">Raw footage</span>
+          </div>
+          <p class="workflow-desc" data-i18n="about.step1desc">Reviewing and organizing all raw material, identifying key moments and narrative threads</p>
         </div>
         <div class="workflow-step">
-          <span class="workflow-num">02</span>
-          <div class="workflow-progress"><div class="workflow-progress-fill"></div></div>
-          <span class="workflow-label" data-i18n="about.step2">Production</span>
-          <span class="workflow-desc" data-i18n="about.step2desc">Shooting & direction</span>
+          <div class="workflow-step-header">
+            <span class="workflow-num">02</span>
+            <span class="workflow-label" data-i18n="about.step2">Structure & rhythm</span>
+          </div>
+          <p class="workflow-desc" data-i18n="about.step2desc">Building the story arc, establishing pacing and emotional beats for maximum retention</p>
         </div>
         <div class="workflow-step">
-          <span class="workflow-num">03</span>
-          <div class="workflow-progress"><div class="workflow-progress-fill"></div></div>
-          <span class="workflow-label" data-i18n="about.step3">Post-production</span>
-          <span class="workflow-desc" data-i18n="about.step3desc">Edit, color & sound</span>
+          <div class="workflow-step-header">
+            <span class="workflow-num">03</span>
+            <span class="workflow-label" data-i18n="about.step3">Final cut</span>
+          </div>
+          <p class="workflow-desc" data-i18n="about.step3desc">Color grading, sound design, polish — delivering a finished piece ready to publish</p>
         </div>
       </div>
     </div>

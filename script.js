@@ -18,9 +18,14 @@ const i18n = {
     'about.label': 'ОБО МНЕ',
     'about.display': 'Я беру на себя структуру истории, нарративный поток и финальный монтаж — чтобы авторы могли сосредоточиться на контенте и росте.',
     'about.body': 'Монтажёр-режиссёр. Специализируюсь на длинных YouTube-форматах и документальном сторителлинге. Помогаю авторам превращать сырой материал в структурированные, удерживающие внимание истории с чётким ритмом.',
+    'about.sliderStart': 'Материал',
+    'about.sliderEnd': 'История',
     'about.step1': 'Сырой материал',
+    'about.step1desc': 'Разбор и организация всего исходного материала, поиск ключевых моментов и нарративных линий',
     'about.step2': 'Структура и ритм',
+    'about.step2desc': 'Построение сюжетной арки, выстраивание темпоритма и эмоциональных акцентов для максимального удержания',
     'about.step3': 'Финальный монтаж',
+    'about.step3desc': 'Цветокоррекция, саунд-дизайн, полировка — готовый продукт для публикации',
     'work.label': 'ИЗБРАННЫЕ РАБОТЫ<sup>(14)</sup>',
     'work.showreel': 'Смотреть шоурил',
     'work.watch': 'Смотреть',
@@ -74,6 +79,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---- PAGE ENTRANCE ----
   document.body.classList.add('is-loading');
+
+  // Fallback: if GSAP CDN fails, reveal content after 3s
+  const gsapFallbackTimer = setTimeout(() => {
+    document.body.classList.remove('is-loading');
+    document.querySelectorAll('.split-word-inner').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+  }, 3000);
 
   // ---- LENIS SMOOTH SCROLL ----
   let lenis;
@@ -217,6 +231,9 @@ document.addEventListener('DOMContentLoaded', () => {
       gsap.registerPlugin(ScrollTrigger);
     }
 
+    // GSAP loaded — cancel fallback timer
+    clearTimeout(gsapFallbackTimer);
+
     // --- PAGE ENTRANCE ANIMATION (Golden Suisse-inspired) ---
     const entranceTl = gsap.timeline({
       onComplete: () => {
@@ -247,8 +264,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroPortrait = document.querySelector('.hero-portrait');
     if (heroPortrait) {
       entranceTl.fromTo(heroPortrait,
-        { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 1, ease: 'back.out(1.4)' },
+        { scale: 0.9, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.8, ease: 'power3.out' },
         0.4
       );
     }
@@ -347,19 +364,18 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     });
 
-    // Choose rows — GS fadeIn (translateY + opacity) with scrub
+    // Choose rows — GS fadeIn (translateY + opacity)
     gsap.utils.toArray('.choose-row').forEach(el => {
       gsap.fromTo(el,
         { y: 50, opacity: 0, immediateRender: false },
         {
           y: 0, opacity: 1,
-          duration: 0.6,
-          ease: 'power2.out',
+          duration: 0.8,
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: el,
-            start: 'top 80%',
-            end: 'top 50%',
-            scrub: true
+            start: 'top 85%',
+            once: true
           }
         }
       );
@@ -368,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Project cards — GS scalePicture style (scale 0.85 → 1 + translateY)
     gsap.utils.toArray('.project-card').forEach((el, i) => {
       gsap.fromTo(el,
-        { y: 50, opacity: 0, scale: 0.85, immediateRender: false },
+        { y: 50, opacity: 0, scale: 0.95, immediateRender: false },
         {
           y: 0, opacity: 1, scale: 1,
           duration: 1.2,
@@ -463,48 +479,37 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     });
 
-    // --- Workflow steps staggered fade-up + progress fill ---
+    // --- Transformation slider — glow slides from Footage to Story ---
+    const transformGlow = document.querySelector('.transform-glow');
+    const transformTrack = document.querySelector('.transform-track');
+    if (transformGlow && transformTrack) {
+      gsap.fromTo(transformGlow,
+        { x: -60 },
+        {
+          x: () => transformTrack.offsetWidth - 60,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.transform-slider',
+            start: 'top bottom',
+            end: () => '+=' + (window.innerHeight + 200),
+            scrub: true
+          }
+        }
+      );
+    }
+
+    // --- Workflow steps staggered fade-up ---
     gsap.utils.toArray('.workflow-step').forEach((el, i) => {
       gsap.fromTo(el,
         { y: 40, opacity: 0, immediateRender: false },
         {
           y: 0, opacity: 1,
           duration: 0.8,
-          delay: i * 0.2,
+          delay: i * 0.15,
           ease: 'power3.out',
           scrollTrigger: { trigger: el, start: 'top 90%', once: true }
         }
       );
-
-      // Animate progress bar fill on scroll
-      const fill = el.querySelector('.workflow-progress-fill');
-      if (fill) {
-        gsap.fromTo(fill,
-          { width: '0%', immediateRender: false },
-          {
-            width: '100%',
-            duration: 1.2,
-            delay: i * 0.3,
-            ease: 'power3.inOut',
-            scrollTrigger: { trigger: el, start: 'top 85%', once: true }
-          }
-        );
-      }
-
-      // Fade in number
-      const num = el.querySelector('.workflow-num');
-      if (num) {
-        gsap.fromTo(num,
-          { opacity: 0, scale: 0.5, immediateRender: false },
-          {
-            opacity: 0.3, scale: 1,
-            duration: 0.6,
-            delay: i * 0.2,
-            ease: 'back.out(2)',
-            scrollTrigger: { trigger: el, start: 'top 90%', once: true }
-          }
-        );
-      }
     });
 
     // --- Golden Suisse-style: Choose separators scaleX reveal ---
